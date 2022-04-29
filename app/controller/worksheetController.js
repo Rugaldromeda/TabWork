@@ -5,20 +5,11 @@ export class worksheetController {
     constructor(){
         const $ = document.querySelector.bind(document)
         this.nameInput = $('[data-name-input]');
-        this.typeInput = $('[data-name-input]');
+        this.typeInput = $('[data-type-input]');
 
         this._listInputs = new ListInputs()
         
     }
 
-    add(){
-        
-        this._listWorksheet.add(this._createWorksheet());
-        this._worksheetView.update(this._listWorksheet);
-        
-    }
-
-    _createWorksheet(){
-        return new ModelWorksheet(this.nameWorksheet.value);
-    }
+    
 }
