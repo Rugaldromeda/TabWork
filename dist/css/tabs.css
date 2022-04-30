@@ -8,7 +8,7 @@
     border-bottom: none;
 }
 
-.tabs__button {
+.tabs__button, .tabs__button__add {
     border-radius: 6px 6px 0 0;
     padding: 10px;
     margin: 0;
@@ -17,7 +17,10 @@
     color: white;
     border-bottom: none;
 }
-.tabs__button:hover, .tabs__button__active {
+.tabs__button__add {
+    border-bottom: solid 2px black !important;
+}
+.tabs__button:hover, .tabs__button__active , .tabs__button__add:hover {
     background-color: white;
     color: black;
     border: none;

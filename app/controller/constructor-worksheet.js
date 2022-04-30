@@ -2,6 +2,7 @@
 import { ModelWorksheet } from "../model/ModelWorksheet.js";
 import { WorkSheetView } from "../view/WorkSheetView.js";
 import { ListWorksheets } from "../model/ListWorksheets.js";
+import { worksheetController } from "./worksheetController.js";
 
 export class constructorWorkSheet {
     constructor(){
@@ -12,6 +13,9 @@ export class constructorWorkSheet {
         
         this._worksheetView = new WorkSheetView($('.tabs'),$('.contents'));
         this._worksheetView.update(this._listWorksheet);
+
+        this.worksheetControl;
+        
         
     }
 
@@ -20,6 +24,9 @@ export class constructorWorkSheet {
         if( verify == undefined && this.nameWorksheet.value.replace(/\s+/g, '') !== "" ){
             this._listWorksheet.add(this._createWorksheet());
             this._worksheetView.update(this._listWorksheet);
+            this.worksheetControl = new worksheetController(this.nameWorksheet.value);
+
+            console.log(this._listWorksheet);
         }
         else if(this.nameWorksheet.value.replace(/\s+/g, '') === ""){
             alert("Campo vazio, por favor insira um valor válido!")

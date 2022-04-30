@@ -1,3 +1,5 @@
+"use strict"
+import { activeModal } from "../components/modalBox.js";
 export class WorkSheetView {
 
     constructor(tab, content){
@@ -9,7 +11,7 @@ export class WorkSheetView {
 
     templateTab(model) {
         return `
-            
+            <button class="tabs__button__add" data-add-worksheet>Adicionar</button>
             ${model.worksheets.map(w => `   
             <button class="tabs__button tabs__${w.nameWorksheet.replace(/\s+/g, '').replace(/\.+/g , '')} ${w.nameWorksheet.replace(/\s+/g, '').replace(/\.+/g , '')}">${w.nameWorksheet}</button> 
         `).join('')} `
@@ -21,7 +23,7 @@ export class WorkSheetView {
         
         ${model.worksheets.map( w => `
             <div class="tab__content invisible" id="tabs__${w.nameWorksheet.replace(/\s+/g, '').replace(/\.+/g , '')}">
-                <form data-constroller-worksheet>
+                <form data-controller-${w.nameWorksheet.replace(/\s+/g, '').replace(/\.+/g , '')}>
                     <input type="text" id="name" data-name-input >
                     <select name="" data-type-input >
                         <option value="numero">Numero</option>
@@ -30,6 +32,7 @@ export class WorkSheetView {
                     </select>
                     <input type="submit" value="adicionar">
                 </form>
+                <div data-${w.nameWorksheet.replace(/\s+/g, '').replace(/\.+/g , '')}></div>
             </div>
         `).join('')}`
     }
@@ -37,5 +40,9 @@ export class WorkSheetView {
     update(model){
         this._tab.innerHTML = this.templateTab(model);
         this._content.innerHTML = this.templateContent(model);
+        const botaoAdd = document.querySelector('[data-add-worksheet]');
+        const modalBox =  document.querySelector('[data-modalbox]');
+
+        botaoAdd.addEventListener('click' , () => activeModal(modalBox));
     }
 }

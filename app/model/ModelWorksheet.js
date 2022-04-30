@@ -2,12 +2,11 @@
 
 import { worksheetController } from "../controller/worksheetController.js";
 import { ListInputs } from "./ListInputs.js";
-import { ModelInputs } from "./ModelInputs.js";
 
 export class ModelWorksheet {
     constructor(name){
         this._nameWorksheet = name;
-        this._worksheetController = new worksheetController
+        this._worksheetController = new worksheetController(name);
         
         this._listInputs = new ListInputs();
     }

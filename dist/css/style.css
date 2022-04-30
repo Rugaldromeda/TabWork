@@ -4,5 +4,15 @@
     padding: 20px;
 }
 .invisible {
-    display: none;
+    display: none !important;
+}
+
+.modalbox_add{
+    border: solid 1px red;
+    width: 400px;
+    padding: 20px;
+    display: flex;
+    margin: 0 35%;
+    float: left;
+    z-index: 99;
 }
