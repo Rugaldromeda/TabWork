@@ -5,5 +5,8 @@ com campos de inserção dedados, organização e busca
 por data e periodo.
 
 O projeto está documentado neste endereço: https://www.mindomo.com/mindmap/4fed47db77c9443c8129eae6b9e2e0a6
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 3f4ea79365e16b34fb7d510cb77a19058d93fca0
