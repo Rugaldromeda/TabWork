@@ -7,14 +7,3 @@ por data e periodo.
 O projeto está documentado neste endereço: https://www.mindomo.com/mindmap/4fed47db77c9443c8129eae6b9e2e0a6
 
 
-<form data-controller-${w.nameWorksheet.replace(/\s+/g, '').replace(/\.+/g , '')} " class="${w.nameWorksheet.replace(/\s+/g, '').replace(/\.+/g , '')}" >
-                    <label for="name"> Escolha o nome da tabela de receitas</label>
-                    <input type="text" id="name" data-name-input >
-                    <!-- <select name="" data-type-input >
-                        <option value="numero">Numero</option>
-                        <option value="data">Data</option>
-                        <option value="dinheiro">Dinheiro</option>
-                    </select> -->
-                    
-                    <input type="submit" value="adicionar">
-                </form>
