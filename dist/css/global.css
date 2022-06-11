@@ -53,4 +53,7 @@ button {
     color: black;
     background-color: white;
 }
+span{
+    cursor: pointer;
+}
 /* */

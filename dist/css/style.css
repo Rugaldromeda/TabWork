@@ -16,3 +16,10 @@
     float: left;
     z-index: 99;
 }
+
+.close__delete {
+    float: right;
+    top: 0;
+    margin-top: -15px !important;
+    margin-right: -5px;
+}

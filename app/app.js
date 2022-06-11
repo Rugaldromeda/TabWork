@@ -2,6 +2,7 @@
 import { constructorWorkSheet } from "./controller/constructor-worksheet.js";
 import { tabActive, closeContent } from "./components/tabs.js";
 import { closeModal } from "./components/modalBox.js";
+import { worksheetControl } from "./controller/worksheetController.js";
 
 const initTabs = () => {
     const listTabs = document.querySelectorAll(".tabs__button");
@@ -30,11 +31,14 @@ function callController(event) {
     worksheetController.add();
     initTabs()
     formAdd.reset();
+    closeModal(modal);
+    console.log(worksheetController.listWorksheet._worksheets[length])
 };
 const worksheetController = new constructorWorkSheet();
 
 formAdd.addEventListener('submit' , callController);
 
+
 const modal = $('[data-modalbox]');
-const closeButton = $('[data-close-modalbox');
-closeButton.addEventListener('click', () => closeModal(modal))
+const closeButton = $('[data-close-modalbox]');
+closeButton.addEventListener('click', () => closeModal(modal));
