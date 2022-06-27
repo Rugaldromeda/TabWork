@@ -63,15 +63,15 @@ export class WorkSheetView {
             const newContent = document.createElement("div");
             newContent.classList.add("tab__content");
             newContent.classList.add("invisible");
-            newContent.setAttribute("id", "tabs__${w.nameWorksheet.replace(/\s+/g, '').replace(/\.+/g , '')}" );
+            newContent.setAttribute("id", `tabs__${w.nameWorksheet.replace(/\s+/g, '').replace(/\.+/g , '')}` );
 
-            const formWController = document.createElement("form");
-            formWController.setAttribute(`data-controller-${w.nameWorksheet.replace(/\s+/g, '').replace(/\.+/g , '')}`, "");
-
+            
+            
+            
             const spaceWorksheets = document.createElement("div");
             spaceWorksheets.setAttribute(`data-${w.nameWorksheet.replace(/\s+/g, '').replace(/\.+/g , '')}`, "");
 
-            newContent.appendChild(formWController);
+            newContent.appendChild(this._formWorksheetController(w.nameWorksheet, w.workSheetControl.add));
             newContent.appendChild(spaceWorksheets);
 
             spaceContent.appendChild(newContent);
@@ -92,5 +92,22 @@ export class WorkSheetView {
         this._tabContents.appendChild(this.templateContent(model));
         
 
+    }
+
+    _formWorksheetController(nameWorksheet,workSheetControl){
+        const formWController = document.createElement("form");
+        formWController.setAttribute(`data-controller-${nameWorksheet.replace(/\s+/g, '').replace(/\.+/g , '')}`, "");
+
+        formWController.addEventListener("submit", (event) =>{
+            event.preventDefault();
+            workSheetControl();
+        })
+        const buttonSubmit = document.createElement("input");
+        const button = document.createElement("button");
+
+        formWController.appendChild(buttonSubmit);
+        formWController.appendChild(button);
+
+        return formWController;
     }
 }

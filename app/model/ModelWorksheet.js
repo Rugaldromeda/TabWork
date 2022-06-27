@@ -6,7 +6,7 @@ import { ListInputs } from "./ListInputs.js";
 export class ModelWorksheet {
     constructor(name){
         this._nameWorksheet = name;
-        
+        this.workSheetControl = new worksheetControl();
         //this._listInputs = new ListInputs();
     }
 
