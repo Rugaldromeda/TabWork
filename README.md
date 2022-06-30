@@ -1,5 +1,7 @@
 TabWork - Static Worksheet
 
+Versão protótipo com javascript puro e Programação Orientada a Objetos
+
 Sistema de criação de planilhas personalizadas,
 com campos de inserção dedados, organização e busca
 por data e periodo.
