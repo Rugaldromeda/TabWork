@@ -102,9 +102,13 @@ export class WorkSheetView {
             event.preventDefault();
             workSheetControl();
         })
+        const label = document.createElement("label");
+        label.innerHTML = "Defina o nome do campo 'RECEITA'"
         const buttonSubmit = document.createElement("input");
         const button = document.createElement("button");
+        button.innerHTML = "SALVAR"
 
+        formWController.appendChild(label)
         formWController.appendChild(buttonSubmit);
         formWController.appendChild(button);
 
