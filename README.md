@@ -2,7 +2,7 @@
 
 TabWork - Static Worksheet
 
-Versão repensada utilizando vue.js e typescript
+Versão repensada utilizando vue.js e typescript - em andamento
 
 Sistema de criação de planilhas personalizadas, com campos de inserção dedados, organização e busca por data e periodo.
 
