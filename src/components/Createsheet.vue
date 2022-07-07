@@ -1,12 +1,13 @@
 <template>
-    <form>
+    <form ref="form" @submit.prevent="addTabWork">
         <label for="nameSheet">Nome Tabela</label>
-        <input type="text" id="nameSheet">
+        <input type="text" id="nameSheet" v-model="nameWorksheet">
 
-        <select id="modelSheet" >
+        <select id="modelSheet" v-model="modelWorksheet" >
             <option value="">Selecione o modelo</option>
-            <option :value="modelsheet.id" v-for="modelsheet in modelsheets" :key="modelsheet.id"> {{modelsheet.model}}</option>
+            <option :value="modelsheet.model" v-for="modelsheet in modelsheets" :key="modelsheet.id"> {{modelsheet.model}}</option>
         </select>
+        <input type="submit">
     </form>
 </template>
 
@@ -20,7 +21,21 @@ export default defineComponent({
     name: 'CreateSheet',
     data() {
         return{
-            idModelsheet: ''
+            idModelsheet: '',
+            modelWorksheet:'',
+            nameWorksheet:''
+        }
+    },
+    methods:{
+        addTabWork(){
+            console.log(this.modelWorksheet)
+            console.log(this.nameWorksheet)
+            this.reset()
+              
+        },
+        reset(){
+            const form:HTMLFormElement |any = this.$refs.form;
+            form.reset();
         }
     },
     setup(){
