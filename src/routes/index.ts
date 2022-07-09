@@ -1,11 +1,11 @@
 import {createRouter, createWebHashHistory, RouteRecordRaw} from "vue-router"
-import CreateSheet from '../components/Createsheet.vue'
+import TabworkView from '../view/Tabwork.vue'
 
 const routes: RouteRecordRaw[] = [
     {
         path:'/',
         name: 'Createsheets',
-        component: CreateSheet
+        component: TabworkView
     }
 ]
 
