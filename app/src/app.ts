@@ -1,12 +1,12 @@
 "use strict"
-import { constructorWorkSheet } from "./create_tabwork/controller/constructor-worksheet.js";
-import { tabActive, closeContent } from "./components/tabs.js";
-import { closeModal } from "./components/modalBox.js";
+import { constructorTabwork } from "./create_tabwork/controllers/constructor-tabwork.js";
+import { closeModal } from "./functions/modalBox.js";
+import { closeContent, tabActive } from "./functions/tabs.js";
 
 const initTabs = () => {
     const listTabs = document.querySelectorAll(".tabs__button");
     for (let counter = 0; counter < listTabs.length; counter++) {
-        const tabsList = listTabs[counter];
+        const tabsList = listTabs[counter] as HTMLElement;
         const divContent = tabsList.classList[2];
         const idContent = `#tabs__${divContent}`;
         const idTab = `.tabs__${divContent}`;
@@ -25,15 +25,16 @@ initTabs()
 
 const $ = document.querySelector.bind(document);
 const formAdd = $(".form-add");
-function callController(event) {
+function callController(event:Event) {
     event.preventDefault();
-    worksheetController.add();
+    tabworkConstructor.add();
     initTabs()
     formAdd.reset();
     closeModal(modal);
-    console.log(worksheetController.listWorksheet._worksheets[length])
+
+    console.log(tabworkConstructor)
 };
-const worksheetController = new constructorWorkSheet();
+const tabworkConstructor = new constructorTabwork();
 
 formAdd.addEventListener('submit' , callController);
 

@@ -1,8 +1,7 @@
-"use strict"
-import { constructorWorkSheet } from "./create_tabwork/controller/constructor-worksheet.js";
-import { tabActive, closeContent } from "./components/tabs.js";
-import { closeModal } from "./components/modalBox.js";
-
+"use strict";
+import { constructorTabwork } from "./create_tabwork/controllers/constructor-tabwork.js";
+import { closeModal } from "./functions/modalBox.js";
+import { closeContent, tabActive } from "./functions/tabs.js";
 const initTabs = () => {
     const listTabs = document.querySelectorAll(".tabs__button");
     for (let counter = 0; counter < listTabs.length; counter++) {
@@ -10,34 +9,26 @@ const initTabs = () => {
         const divContent = tabsList.classList[2];
         const idContent = `#tabs__${divContent}`;
         const idTab = `.tabs__${divContent}`;
-
         tabsList.onclick = () => {
-            closeContent()
+            closeContent();
             tabActive(idContent, idTab);
-        }
-    
+        };
     }
-
-}
-
-initTabs()
-
-
+};
+initTabs();
 const $ = document.querySelector.bind(document);
 const formAdd = $(".form-add");
 function callController(event) {
     event.preventDefault();
-    worksheetController.add();
-    initTabs()
+    tabworkConstructor.add();
+    initTabs();
     formAdd.reset();
     closeModal(modal);
-    console.log(worksheetController.listWorksheet._worksheets[length])
-};
-const worksheetController = new constructorWorkSheet();
-
-formAdd.addEventListener('submit' , callController);
-
-
+    console.log(tabworkConstructor);
+}
+;
+const tabworkConstructor = new constructorTabwork();
+formAdd.addEventListener('submit', callController);
 const modal = $('[data-modalbox]');
 const closeButton = $('[data-close-modalbox]');
 closeButton.addEventListener('click', () => closeModal(modal));
